@@ -1,0 +1,1270 @@
+[
+    {
+        "id": "87cf9692d8e2818d",
+        "type": "tab",
+        "label": "Smart Plant Monitor",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "174571a0d11a8213",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#a10e2f",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#a10e2f",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#a10e2f",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#e71444",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#a10e2f",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "mqtt_broker",
+        "type": "mqtt-broker",
+        "name": "Local MQTT",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "tab1",
+        "type": "ui_tab",
+        "name": "THYM Dashboard",
+        "icon": "dashboard",
+        "order": 2
+    },
+    {
+        "id": "group1",
+        "type": "ui_group",
+        "name": "THYM Gauges",
+        "tab": "tab1",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "group2",
+        "type": "ui_group",
+        "name": "Graphs",
+        "tab": "tab1",
+        "order": 2,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "fbc0ac1847957b22",
+        "type": "MySQLdatabase",
+        "name": "MySQL Plant DB",
+        "host": "192.168.72.72",
+        "port": "3306",
+        "db": "gaston_data_base",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "e46c5a95fc8463ed",
+        "type": "serial-port",
+        "name": "",
+        "serialport": "/dev/ttyACM0",
+        "serialbaud": "9600",
+        "databits": 8,
+        "parity": "none",
+        "stopbits": 1,
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": 10000
+    },
+    {
+        "id": "3b9663ba5c344d7c",
+        "type": "ui_group",
+        "name": "Météo",
+        "tab": "tab1",
+        "order": 3,
+        "disp": true,
+        "width": 11,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "89433ea25f9b1bf6",
+        "type": "ui_group",
+        "name": "Donnees",
+        "tab": "tab1",
+        "order": 4,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "2acfe212f9e4d01b",
+        "type": "ui_spacer",
+        "z": "87cf9692d8e2818d",
+        "name": "spacer",
+        "group": "",
+        "order": 5,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "e9d9a1661d7fe351",
+        "type": "ui_spacer",
+        "z": "87cf9692d8e2818d",
+        "name": "spacer",
+        "group": "group2",
+        "order": 6,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "d4333b194de032e9",
+        "type": "function",
+        "z": "87cf9692d8e2818d",
+        "name": "Split Sensor Data",
+        "func": "// Split JSON payload into separate messages\nreturn [\n  {payload: msg.payload.temp},\n  {payload: msg.payload.hum},\n  {payload: msg.payload.soil},\n  {payload: msg.payload.light},\n  {payload: msg.payload.gas},\n  {payload: msg.payload.height},\n  {payload: msg.payload.cat},\n  {payload: msg.payload}\n];",
+        "outputs": 8,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 120,
+        "wires": [
+            [
+                "023de0678edc36a3",
+                "ea21c937a8881e58"
+            ],
+            [
+                "a7dfaa181a458e03",
+                "e1444b8dfc8ce0ec"
+            ],
+            [
+                "751410caa5d782d8",
+                "785bdcee23af4d03"
+            ],
+            [
+                "c6434a0e8f885579"
+            ],
+            [
+                "6fc173f98ed2ebfb"
+            ],
+            [
+                "8315b2283f9f1a62"
+            ],
+            [
+                "d41542697306317a"
+            ],
+            [
+                "8a60b2162c8f3efd"
+            ]
+        ]
+    },
+    {
+        "id": "023de0678edc36a3",
+        "type": "ui_gauge",
+        "z": "87cf9692d8e2818d",
+        "name": "Temperature",
+        "group": "group1",
+        "order": 1,
+        "width": 6,
+        "height": 3,
+        "gtype": "gage",
+        "title": "Temperature (°C)",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 50,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "x": 790,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "a7dfaa181a458e03",
+        "type": "ui_gauge",
+        "z": "87cf9692d8e2818d",
+        "name": "Humidity",
+        "group": "group1",
+        "order": 2,
+        "width": 6,
+        "height": 3,
+        "gtype": "gage",
+        "title": "Humidity (%)",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 100,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "x": 780,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "751410caa5d782d8",
+        "type": "ui_gauge",
+        "z": "87cf9692d8e2818d",
+        "name": "Soil Moisture",
+        "group": "group1",
+        "order": 3,
+        "width": 6,
+        "height": 3,
+        "gtype": "gage",
+        "title": "Soil Moisture",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#ca3838",
+            "#e6e600",
+            "#00b500"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 790,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "c6434a0e8f885579",
+        "type": "ui_gauge",
+        "z": "87cf9692d8e2818d",
+        "name": "Light Level",
+        "group": "group1",
+        "order": 4,
+        "width": 6,
+        "height": 3,
+        "gtype": "gage",
+        "title": "Light Level",
+        "label": "Lux",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#000000",
+            "#ffff00",
+            "#f5f0f0"
+        ],
+        "seg1": "25",
+        "seg2": "50",
+        "diff": false,
+        "className": "",
+        "x": 790,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "6fc173f98ed2ebfb",
+        "type": "ui_gauge",
+        "z": "87cf9692d8e2818d",
+        "name": "Gas Detector",
+        "group": "group1",
+        "order": 5,
+        "width": 6,
+        "height": 3,
+        "gtype": "gage",
+        "title": "Gas Level",
+        "label": "m3",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 790,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "8315b2283f9f1a62",
+        "type": "ui_gauge",
+        "z": "87cf9692d8e2818d",
+        "name": "Plant Height",
+        "group": "group1",
+        "order": 6,
+        "width": 6,
+        "height": 3,
+        "gtype": "gage",
+        "title": "Plant Height",
+        "label": "cm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 100,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "x": 790,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "d41542697306317a",
+        "type": "function",
+        "z": "87cf9692d8e2818d",
+        "name": "Cat Detection",
+        "func": "const TEN_MINUTES = 10 * 1000; // 10 minutes en millisecondes\n\n// Stocker l'état dans le contexte\nlet lastAlertTime = context.get('lastAlertTime') || 0;\nlet now = Date.now();\n\nif (msg.payload === 1) {\n    if (now - lastAlertTime > TEN_MINUTES) {\n        context.set('lastAlertTime', now);\n        return { payload: \"🚨 Cat detected near the plant!\" };\n    } else {\n        // Ignorer car déjà détecté récemment\n        return null;\n    }\n}\n\n// Réinitialiser si plus de chat détecté (optionnel)\nreturn null;\n",
+        "outputs": 1,
+        "timeout": "10",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 380,
+        "wires": [
+            [
+                "844bc2586c7f06bb",
+                "71d4207d3f1703dd",
+                "d30973d7f4cef29f"
+            ]
+        ]
+    },
+    {
+        "id": "844bc2586c7f06bb",
+        "type": "ui_toast",
+        "z": "87cf9692d8e2818d",
+        "position": "top right",
+        "displayTime": "5",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "topic": "",
+        "name": "Cat Popup",
+        "x": 990,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "ea21c937a8881e58",
+        "type": "ui_chart",
+        "z": "87cf9692d8e2818d",
+        "name": "Temperature Chart",
+        "group": "group2",
+        "order": 1,
+        "width": 6,
+        "height": 4,
+        "label": "Temperature Over Time",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "ymin": "0",
+        "ymax": "50",
+        "removeOlder": "1",
+        "removeOlderUnit": "3600",
+        "colors": [
+            "#ff0000"
+        ],
+        "outputs": 1,
+        "x": 810,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e1444b8dfc8ce0ec",
+        "type": "ui_chart",
+        "z": "87cf9692d8e2818d",
+        "name": "Humidity Chart",
+        "group": "group2",
+        "order": 2,
+        "width": 6,
+        "height": 4,
+        "label": "Humidity Over Time",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": "1",
+        "removeOlderUnit": "3600",
+        "colors": [
+            "#0000ff"
+        ],
+        "outputs": 1,
+        "x": 800,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "785bdcee23af4d03",
+        "type": "ui_chart",
+        "z": "87cf9692d8e2818d",
+        "name": "Soil Chart",
+        "group": "group2",
+        "order": 3,
+        "width": 6,
+        "height": 4,
+        "label": "Soil Moisture Over Time",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "ymin": "0",
+        "ymax": "1023",
+        "removeOlder": "1",
+        "removeOlderUnit": "3600",
+        "colors": [
+            "#654321"
+        ],
+        "outputs": 1,
+        "x": 780,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3bd50b5a45281d53",
+        "type": "ui_switch",
+        "z": "87cf9692d8e2818d",
+        "name": "Pump Switch",
+        "label": "Water Plant",
+        "tooltip": "Toggle Pump",
+        "group": "group2",
+        "order": 4,
+        "width": 6,
+        "height": 2,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "1",
+        "onvalueType": "num",
+        "onicon": "fa-toggle-on",
+        "oncolor": "",
+        "offvalue": "0",
+        "offvalueType": "num",
+        "officon": "fa-toggle-off",
+        "offcolor": "",
+        "animate": true,
+        "className": "",
+        "x": 110,
+        "y": 560,
+        "wires": [
+            [
+                "07b931c0807dbb60",
+                "27c1629cd83a3101",
+                "bd493aa07d0afcf0",
+                "f7e66e5d39ad3a54"
+            ]
+        ],
+        "icon": "fa-tint"
+    },
+    {
+        "id": "8a60b2162c8f3efd",
+        "type": "function",
+        "z": "87cf9692d8e2818d",
+        "name": "Combine for SQL",
+        "func": "// Combine all sensor values into one object\nmsg.payload = {\n    temp: msg.payload.temp,\n    hum: msg.payload.hum,\n    soil: msg.payload.soil,\n    light: msg.payload.light,\n    gas: msg.payload.gas,\n    height: msg.payload.height,\n    cat: msg.payload.cat\n};\nreturn msg;",
+        "outputs": 1,
+        "x": 810,
+        "y": 500,
+        "wires": [
+            [
+                "a74896053ee4102d"
+            ]
+        ]
+    },
+    {
+        "id": "a74896053ee4102d",
+        "type": "function",
+        "z": "87cf9692d8e2818d",
+        "name": "Prepare SQL Insert",
+        "func": "var d = msg.payload;\nmsg.topic = `INSERT INTO plant_data (temp, hum, soil, light, gas, height, cat)\nVALUES (${d.temp}, ${d.hum}, ${d.soil}, ${d.light}, ${d.gas}, ${d.height}, ${d.cat})`;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1010,
+        "y": 500,
+        "wires": [
+            [
+                "59e014511260f3bd"
+            ]
+        ]
+    },
+    {
+        "id": "07b931c0807dbb60",
+        "type": "serial out",
+        "z": "87cf9692d8e2818d",
+        "name": "Send to Arduino",
+        "serial": "e46c5a95fc8463ed",
+        "x": 360,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "71d4207d3f1703dd",
+        "type": "e-mail",
+        "z": "87cf9692d8e2818d",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "authtype": "BASIC",
+        "saslformat": true,
+        "token": "oauth2Response.access_token",
+        "secure": true,
+        "tls": true,
+        "name": "semrounimohamed69@gmail.com",
+        "dname": "Cat Alert Email",
+        "x": 1000,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "2b610c0a7d39a524",
+        "type": "ui_text",
+        "z": "87cf9692d8e2818d",
+        "group": "group2",
+        "order": 5,
+        "width": 6,
+        "height": 1,
+        "name": "Pump State Text",
+        "label": "Pump Status",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "x": 580,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "27c1629cd83a3101",
+        "type": "function",
+        "z": "87cf9692d8e2818d",
+        "name": "Switch To Text",
+        "func": "msg.payload = (msg.payload === 1 || msg.payload === \"1\") ? \"Pump ON\" : \"Pump OFF\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 620,
+        "wires": [
+            [
+                "2b610c0a7d39a524"
+            ]
+        ]
+    },
+    {
+        "id": "bd493aa07d0afcf0",
+        "type": "function",
+        "z": "87cf9692d8e2818d",
+        "name": "Prepare Pump SQL",
+        "func": "var state = (msg.payload === 1 || msg.payload === \"1\") ? 1 : 0;\nmsg.topic = `INSERT INTO pump_log (state) VALUES (${state})`;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 560,
+        "wires": [
+            [
+                "53424b7e4be50bda"
+            ]
+        ]
+    },
+    {
+        "id": "53424b7e4be50bda",
+        "type": "mysql",
+        "z": "87cf9692d8e2818d",
+        "mydb": "fbc0ac1847957b22",
+        "name": "MySQL Plant DB",
+        "x": 590,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f6275c3eba0d72d7",
+        "type": "inject",
+        "z": "87cf9692d8e2818d",
+        "name": "Refresh Pump Log",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "120",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 1100,
+        "wires": [
+            [
+                "3b69104593b45111"
+            ]
+        ]
+    },
+    {
+        "id": "3b69104593b45111",
+        "type": "function",
+        "z": "87cf9692d8e2818d",
+        "name": "Query Pump Log",
+        "func": "msg.topic = \"SELECT * FROM pump_log ORDER BY timestamp DESC LIMIT 10\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 1100,
+        "wires": [
+            [
+                "67cf5b5ec6967ee7"
+            ]
+        ]
+    },
+    {
+        "id": "67cf5b5ec6967ee7",
+        "type": "mysql",
+        "z": "87cf9692d8e2818d",
+        "mydb": "fbc0ac1847957b22",
+        "name": "MySQL Plant DB",
+        "x": 590,
+        "y": 1100,
+        "wires": [
+            [
+                "32c2955a3fa15268"
+            ]
+        ]
+    },
+    {
+        "id": "5b325c90ae5e46d2",
+        "type": "ui_toast",
+        "z": "87cf9692d8e2818d",
+        "position": "top right",
+        "displayTime": "10",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "Pump Alert Toast",
+        "x": 670,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "6fe5a6fd390ad15b",
+        "type": "e-mail",
+        "z": "87cf9692d8e2818d",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "authtype": "BASIC",
+        "saslformat": true,
+        "token": "oauth2Response.access_token",
+        "secure": true,
+        "tls": true,
+        "name": "semrounimohamed69@gmail.com",
+        "dname": "Pump Alert Email",
+        "x": 870,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "70d8774e78f73b13",
+        "type": "function",
+        "z": "87cf9692d8e2818d",
+        "name": "Prepare Pump Alert SQL",
+        "func": "msg.topic = \"INSERT INTO journal_alertes (type, message) VALUES ('pump', 'Pump has been ON for over 5 minutes')\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 720,
+        "wires": [
+            [
+                "25f11dbe4c4aa942"
+            ]
+        ]
+    },
+    {
+        "id": "25f11dbe4c4aa942",
+        "type": "mysql",
+        "z": "87cf9692d8e2818d",
+        "mydb": "fbc0ac1847957b22",
+        "name": "MySQL Plant DB",
+        "x": 970,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "565728154df5f879",
+        "type": "inject",
+        "z": "87cf9692d8e2818d",
+        "name": "Refresh Alert Log",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "120",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 920,
+        "wires": [
+            [
+                "72ad4e4916d468c1"
+            ]
+        ]
+    },
+    {
+        "id": "72ad4e4916d468c1",
+        "type": "function",
+        "z": "87cf9692d8e2818d",
+        "name": "Query Alert Log",
+        "func": "msg.topic = \"SELECT * FROM alert_log ORDER BY timestamp DESC LIMIT 10\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 920,
+        "wires": [
+            [
+                "78bf7a1fbd068279"
+            ]
+        ]
+    },
+    {
+        "id": "78bf7a1fbd068279",
+        "type": "mysql",
+        "z": "87cf9692d8e2818d",
+        "mydb": "fbc0ac1847957b22",
+        "name": "MySQL Plant DB",
+        "x": 590,
+        "y": 920,
+        "wires": [
+            [
+                "7326b13a5f923c76"
+            ]
+        ]
+    },
+    {
+        "id": "255f5708763831ae",
+        "type": "ui_button",
+        "z": "87cf9692d8e2818d",
+        "name": "Clear Alerts Button",
+        "group": "89433ea25f9b1bf6",
+        "order": 3,
+        "width": 6,
+        "height": 1,
+        "passthru": false,
+        "label": "🗑️ Clear Alert Log",
+        "tooltip": "Delete all alert records",
+        "color": "#ffffff",
+        "bgcolor": "#d9534f",
+        "className": "",
+        "icon": "fa-trash",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 110,
+        "y": 1000,
+        "wires": [
+            [
+                "58a271f8c14518b1",
+                "6ddf1570c0956401"
+            ]
+        ]
+    },
+    {
+        "id": "58a271f8c14518b1",
+        "type": "function",
+        "z": "87cf9692d8e2818d",
+        "name": "Clear Alert Log SQL",
+        "func": "msg.topic = \"DELETE FROM alert_log\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 980,
+        "wires": [
+            [
+                "78bf7a1fbd068279"
+            ]
+        ]
+    },
+    {
+        "id": "365fb1430cd7a74c",
+        "type": "serial in",
+        "z": "87cf9692d8e2818d",
+        "name": "serial in",
+        "serial": "e46c5a95fc8463ed",
+        "x": 90,
+        "y": 120,
+        "wires": [
+            [
+                "92e5453d28529788"
+            ]
+        ]
+    },
+    {
+        "id": "92e5453d28529788",
+        "type": "json",
+        "z": "87cf9692d8e2818d",
+        "name": "Parse JSON",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 250,
+        "y": 120,
+        "wires": [
+            [
+                "d4333b194de032e9"
+            ]
+        ]
+    },
+    {
+        "id": "ba793ef6c908cf3f",
+        "type": "exec",
+        "z": "87cf9692d8e2818d",
+        "command": "python3 /home/pi/Desktop/Gaston/script_meteo.py --prevision --transfere",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "API météo",
+        "x": 290,
+        "y": 1240,
+        "wires": [
+            [
+                "1afa9fa2a2399a82"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "47727394e8216f64",
+        "type": "inject",
+        "z": "87cf9692d8e2818d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 100,
+        "y": 1240,
+        "wires": [
+            [
+                "ba793ef6c908cf3f"
+            ]
+        ]
+    },
+    {
+        "id": "1afa9fa2a2399a82",
+        "type": "json",
+        "z": "87cf9692d8e2818d",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 470,
+        "y": 1220,
+        "wires": [
+            [
+                "7954e4dc71175660"
+            ]
+        ]
+    },
+    {
+        "id": "59e014511260f3bd",
+        "type": "mysql",
+        "z": "87cf9692d8e2818d",
+        "mydb": "fbc0ac1847957b22",
+        "name": "MySQL Plant DB",
+        "x": 1230,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7954e4dc71175660",
+        "type": "function",
+        "z": "87cf9692d8e2818d",
+        "name": "function emoji meteo",
+        "func": "// On modifie chaque élément de la prévision météo du tableau contenu dans msg.payload\nmsg.payload = msg.payload.map(e => {\n\n    // On convertit la description météo en minuscule pour éviter les erreurs de comparaison\n    let meteo = e.Meteo.toLowerCase();\n\n    // Valeur par défaut : un point d'interrogation si aucune condition ne correspond\n    let emoji = \"❓\";\n\n    // On détecte la présence de certains mots clés dans la description météo, et on attribue l’émoji correspondant\n\n    if (meteo.includes(\"ensoleillé\")) // Si la chaîne contient \"ensoleillé\"\n        emoji = \"🌤️\"; // => Soleil\n    \n    else if (meteo.includes(\"ciel dégagé\"))\n        emoji = \"☀️\"; // => Ciel dégagé\n\n    else if (meteo.includes(\"nuageux\") || meteo.includes(\"couvert\"))\n        emoji = \"☁️\"; // => Nuages\n\n    else if (meteo.includes(\"pluie\") && meteo.includes(\"légère\"))\n        emoji = \"🌦️\"; // => Averses légères\n\n    else if (meteo.includes(\"pluie\"))\n        emoji = \"🌧️\"; // => Pluie normale ou forte\n\n    else if (meteo.includes(\"orage\"))\n        emoji = \"⛈️\"; // => Orage\n\n    else if (meteo.includes(\"neige\"))\n        emoji = \"❄️\"; // => Neige\n\n    else if (meteo.includes(\"brume\"))\n        emoji = \"🌫️\"; // => Brouillard ou brume\n\n    // On met à jour la valeur du champ Meteo dans l'objet avec l'emoji devant le texte\n    e.Meteo = `${emoji} ${e.Meteo}`;\n\n    // On retourne l'objet modifié\n    return e;\n});\n\n// Enfin, on retourne le message complet avec tous les objets mis à jour\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 1220,
+        "wires": [
+            [
+                "b73456476686ad9e"
+            ]
+        ]
+    },
+    {
+        "id": "431070a3a6e690a6",
+        "type": "function",
+        "z": "87cf9692d8e2818d",
+        "name": "Format Email",
+        "func": "msg.payload = \"🚨 La pompe est restée allumée plus de 5 minutes !\";\nmsg.topic = \"Alerte pompe Node-RED\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 780,
+        "wires": [
+            [
+                "6fe5a6fd390ad15b"
+            ]
+        ]
+    },
+    {
+        "id": "f7e66e5d39ad3a54",
+        "type": "trigger",
+        "z": "87cf9692d8e2818d",
+        "name": "Pump On Timeout",
+        "op1": "",
+        "op2": "Pump has been ON for over 10 seconds!",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "10",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "0",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 370,
+        "y": 680,
+        "wires": [
+            [
+                "5b325c90ae5e46d2",
+                "70d8774e78f73b13",
+                "431070a3a6e690a6"
+            ]
+        ]
+    },
+    {
+        "id": "b73456476686ad9e",
+        "type": "ui_template",
+        "z": "87cf9692d8e2818d",
+        "group": "3b9663ba5c344d7c",
+        "name": "Météo template",
+        "order": 1,
+        "width": 11,
+        "height": 5,
+        "format": "<style>\n    .weather-container {\n        display: flex;\n        flex-wrap: nowrap;\n        gap: 10px;\n        font-family: 'Segoe UI', sans-serif;\n        overflow-x: auto;\n        padding-bottom: 10px;\n    }\n\n    .weather-card {\n        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);\n        border-radius: 12px;\n        color: white;\n        padding: 12px;\n        min-width: 180px;\n        text-align: center;\n        box-shadow: 2px 2px 6px #999;\n        flex: 0 0 auto;\n    }\n\n    .weather-label {\n        font-weight: bold;\n        background: rgba(255, 255, 255, 0.2);\n        border-radius: 4px;\n        padding: 3px 8px;\n        margin-bottom: 6px;\n        display: inline-block;\n    }\n\n    .weather-temp {\n        font-size: 2.2em;\n        margin: 4px 0;\n    }\n\n    .weather-icon {\n        font-size: 2em;\n        margin: 5px 0;\n    }\n\n    .weather-desc {\n        font-size: 0.95em;\n        margin-bottom: 4px;\n    }\n\n    .weather-hour {\n        font-size: 0.9em;\n        color: #e0e0e0;\n    }\n\n    .weather-humidity {\n        font-size: 0.9em;\n        margin-top: 4px;\n        color: #cceeff;\n    }\n\n    .weather-datetime {\n        font-size: 0.85em;\n        margin-top: 6px;\n        color: #d0f0ff;\n    }\n</style>\n\n<div class=\"weather-container\">\n    <div class=\"weather-card\" ng-repeat=\"item in msg.payload\">\n        <div class=\"weather-label\">{{item.label}}</div>\n        <div class=\"weather-hour\">{{item.heure}}</div>\n        <div class=\"weather-icon\">{{item.emoji}}</div>\n        <div class=\"weather-temp\">{{item.Temperature}}°</div>\n        <div class=\"weather-desc\">{{item.Meteo}}</div>\n        <div class=\"weather-humidity\">💧 {{item.Humidite}} %</div>\n        <div class=\"weather-datetime\">📅 {{item.Heure}}</div>\n    </div>\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 940,
+        "y": 1220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d30973d7f4cef29f",
+        "type": "function",
+        "z": "87cf9692d8e2818d",
+        "name": "Prepare Alert_log SQL",
+        "func": "msg.topic = \"INSERT INTO alert_log (type, message) VALUES ('Chat', 'Danger chat détecté')\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 380,
+        "wires": [
+            [
+                "25e6bbd431ce2170"
+            ]
+        ]
+    },
+    {
+        "id": "25e6bbd431ce2170",
+        "type": "mysql",
+        "z": "87cf9692d8e2818d",
+        "mydb": "fbc0ac1847957b22",
+        "name": "MySQL Plant DB",
+        "x": 1270,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6ddf1570c0956401",
+        "type": "function",
+        "z": "87cf9692d8e2818d",
+        "name": "Clear Pump_log SQL",
+        "func": "msg.topic = \"DELETE FROM pump_log\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 1020,
+        "wires": [
+            [
+                "67cf5b5ec6967ee7"
+            ]
+        ]
+    },
+    {
+        "id": "32c2955a3fa15268",
+        "type": "ui_table",
+        "z": "87cf9692d8e2818d",
+        "group": "89433ea25f9b1bf6",
+        "name": "Pump Log Table",
+        "order": 1,
+        "width": 6,
+        "height": 6,
+        "columns": [],
+        "outputs": 1,
+        "cts": true,
+        "x": 800,
+        "y": 1100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7326b13a5f923c76",
+        "type": "ui_table",
+        "z": "87cf9692d8e2818d",
+        "group": "89433ea25f9b1bf6",
+        "name": "Alert Log Table",
+        "order": 2,
+        "width": 6,
+        "height": 6,
+        "columns": [
+            {
+                "field": "id",
+                "title": "ID",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "type",
+                "title": "Type",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "message",
+                "title": "Message",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "timestamp",
+                "title": "Time",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            }
+        ],
+        "outputs": 1,
+        "cts": true,
+        "x": 920,
+        "y": 920,
+        "wires": [
+            []
+        ]
+    }
+]
